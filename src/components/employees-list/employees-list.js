@@ -2,8 +2,9 @@ import EmployeesListItem from "../employees-list-item/employees-list-item"
 import './employees-list.css'
 const EmployeesList = ({ data }) => {
   const employees = data.map(item => {
+    const {id, ...restItem} = item
     return (
-      <EmployeesListItem {...item} />
+      <EmployeesListItem key = { id } { ...restItem } />
     )
   })
   return (
