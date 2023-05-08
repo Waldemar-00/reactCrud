@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './employees-list-item.css'
-class EmployeesListItem extends Component {
+class EmployeesListItemClass extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,7 +19,7 @@ class EmployeesListItem extends Component {
     }))
   }
   render() {
-    const { name, salary } = this.props
+    const { name, salary, onDelete } = this.props
     const {increase, like} = this.state
     let classList = "list-group-item d-flex justify-content-between"
     if (increase) {
@@ -27,7 +27,6 @@ class EmployeesListItem extends Component {
     }
     if (like) {
       classList += ' like'
-      console.log(classList)
     }
     return (
       <li className = { classList }>
@@ -40,7 +39,7 @@ class EmployeesListItem extends Component {
           onClick={this.onIncrease}>
             <i className='fas fa-cookie'></i>
           </button>
-          <button type="button" className="btn-trash btn-sm">
+          <button type="button" className="btn-trash btn-sm" onClick={onDelete}>
             <i className='fas fa-trash'></i>
           </button>
           <i className='fas fa-star'></i>
@@ -49,4 +48,4 @@ class EmployeesListItem extends Component {
     )
   }
 }
-export default EmployeesListItem
+export default EmployeesListItemClass
