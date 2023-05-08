@@ -16,6 +16,7 @@ class App extends Component {
         { name: 'Uladzimir Gorochovsky', salary: 12000, id: 3 }
       ]
     }
+    this.dataId = 4
   }
   deleteElement = (id) => {
     this.setState(({ data }) => {
@@ -27,6 +28,17 @@ class App extends Component {
         data : data.filter(elem => elem.id !== id)
       }
     })
+  }
+  createEmployee = (name, salary) => {
+    const newEmployee = {
+      name,
+      salary,
+      id: this.dataId++
+    }
+    this.setState(({ data }) => {
+      return { data: [...data, newEmployee] }
+    })
+      
   }
   render() {
     return (
@@ -40,7 +52,7 @@ class App extends Component {
           data={this.state.data}
           onDelete={ this.deleteElement }
         />
-        <EmployeesAddForm />
+        <EmployeesAddForm onCreate={this.createEmployee}/>
       </div>
   )
   }

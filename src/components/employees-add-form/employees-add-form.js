@@ -9,9 +9,16 @@ class EmployeesAddForm extends Component {
     }
   }
   onChangeInputs = (e) => {
-    //e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+  onSubmit = (e) => {
+    e.preventDefault()
+    this.props.onCreate(this.state.employeeName, this.state.salary)
+    this.setState({
+      employeeName: '',
+      salary: ''
     })
   }
   render() {
@@ -22,7 +29,7 @@ class EmployeesAddForm extends Component {
         <form className='add-from d-flex'>
           <input onChange={this.onChangeInputs} name='employeeName' type="text" value={employeeName} className='form-control new-post-label' placeholder='What is it name?'/>
           <input onChange={this.onChangeInputs} name='salary' type="number" value={salary} className='form-control new-post-label' placeholder='Salary in $?' />
-          <button type="submit" className='btn btn-outline-light'></button>
+          <button type="submit" className='btn btn-outline-light' onClick={this.onSubmit}></button>
         </form>
       </div>
     )
