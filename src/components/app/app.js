@@ -17,6 +17,7 @@ class App extends Component {
       ]
     }
     this.dataId = 4
+    this.counter = 0
   }
   deleteElement = (id) => {
     this.setState(({ data }) => {
@@ -58,12 +59,24 @@ class App extends Component {
     }))
   }
   onToggleRise = (id) => {
-    console.log(`Rise this ${id}`)
+    this.setState(({ data }) => ({
+      data: data.map(obj => {
+        if (obj.id === id) {
+          return { ...obj, rise: !obj.rise }
+        }
+        return obj
+      })
+    }))
   }
   render() {
+    const employees = this.state.data.length
+    const increase = this.state.data.filter(obj => obj.increase).length
     return (
       <div className="app">
-        <AppInfo />
+        <AppInfo
+          number={employees}
+          award={increase}
+        />
         <div className="seach-panel">
           <SeachPanel />
           <AppFilter />
