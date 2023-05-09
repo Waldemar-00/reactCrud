@@ -20,10 +20,6 @@ class App extends Component {
   }
   deleteElement = (id) => {
     this.setState(({ data }) => {
-      //const index = data.findIndex(elem => elem.id === id)
-      // const before = data.slice(0, index)
-      // const after = data.slice(index + 1)
-      // const newData = [...before, ...after]
       return {
         data : data.filter(elem => elem.id !== id)
       }

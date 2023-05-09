@@ -15,7 +15,13 @@ class EmployeesAddForm extends Component {
   }
   onSubmit = (e) => {
     e.preventDefault()
-    this.props.onCreate(this.state.employeeName, this.state.salary)
+    switch (this.state.employeeName && this.state.salary ) {
+      case '':
+        alert('Please write he/she name and salary')
+        break
+      default:
+        this.props.onCreate(this.state.employeeName, this.state.salary)
+    }
     this.setState({
       employeeName: '',
       salary: ''
