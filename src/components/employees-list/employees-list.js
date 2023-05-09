@@ -1,14 +1,16 @@
 // import EmployeesListItem from "../employees-list-item/employees-list-item"
-import EmployeesListItemClass from "../employees-list-item/employees-list-item-class"
+import EmployeesListItem from "../employees-list-item/employees-list-item"
 import './employees-list.css'
-const EmployeesList = ({ data, onDelete }) => {
+const EmployeesList = ({ data, onDelete, onToggleRise, onToggleIncrease }) => {
   const employees = data.map(item => {
     const {id, ...restItem} = item
     return (
       // <EmployeesListItem key={id} {...restItem} />
-      <EmployeesListItemClass
+      <EmployeesListItem
         key={id} {...restItem} // from object data
         onDelete={() => onDelete(id)}
+        onToggleIncrease={() => onToggleIncrease(id)}
+        onToggleRise={() => onToggleRise(id)}
       />
     )
   })
