@@ -15,7 +15,7 @@ class EmployeesAddForm extends Component {
   }
   onSubmit = (e) => {
     e.preventDefault()
-    if (this.state.employeeName.length < 4 || this.state.salary.length < 4) {
+    if (this.state.employeeName.length < 4 || this.state.salary.length < 3) {
       alert('Please write he/she name and salary')
     } else {
       this.props.onCreate(this.state.employeeName, this.state.salary)
