@@ -7,7 +7,8 @@ const EmployeesListItem = (props) => {
     }
     if (rise) {
       classList += ' like'
-    }
+  }
+  //! it is dynamic classes
     return (
       <li className={classList}>
         <span className="list-group-item-label"

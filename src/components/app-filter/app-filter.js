@@ -8,6 +8,7 @@ const AppFilter = (props) => {
   const buttons = buttonsData.map(({ name, label }) => {
     const active = props.filter === name
     const clazz = active ? 'btn-light' : 'btn-outline-light' 
+    //! it is dynamic classes
     return (
       <button
         className={`btn ${clazz}`}
