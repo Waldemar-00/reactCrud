@@ -13,6 +13,8 @@ const EmployeesListItem = (props) => {
         <span className="list-group-item-label"
           data-toggle="rise"
           onClick={onToggleProp}
+          // style={{ fontSize: '36px', color: 'red', transition: 'all', WebkitTransition: 'all', msTransition: 'all' }}
+          //! it is not good practice - in line styles
         >{name}</span>
         <input type="text" className="list-group-item-input" defaultValue={salary + '$'} />
         <div className='d-flex justify-content-center align-items-center'>
