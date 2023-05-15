@@ -1,12 +1,16 @@
 import { Component } from 'react'
 import './employees-add-form.scss'
 class EmployeesAddForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      employeeName: '',
-      salary: ''
-    }
+  // constructor(props) {
+    // super(props)
+    // this.state = {
+      // employeeName: '',
+      // salary: ''
+    // }
+  // }
+  state = {
+    employeeName: '',
+    salary: ''
   }
   onChangeInputs = (e) => {
     this.setState({
@@ -25,6 +29,13 @@ class EmployeesAddForm extends Component {
       salary: ''
     })
   }
+  static onLog = (logged) => {
+    console.log(logged)
+  }
+  static logged = 'on static!'
+  static writeLogged = () => {
+    console.log(this.logged + ' ' + this.logged)
+  }
   render() {
     const { salary, employeeName } = this.state
     return (
@@ -39,4 +50,6 @@ class EmployeesAddForm extends Component {
     )
   }
 }
+EmployeesAddForm.onLog(EmployeesAddForm.logged)
+EmployeesAddForm.writeLogged()
 export default EmployeesAddForm
